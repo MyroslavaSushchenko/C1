@@ -1,0 +1,33 @@
+  <script>
+  
+    var num = +prompt('Введите сумму не привышающую 999');
+	console.log(num);
+	if (num < 1 || num > 999) {
+        console.log("Введите другую сумму");
+		}
+	
+    var units = ['гривен', 'одна гривна', 'две гривны', 'три гривны', 'четыре гривны', 'пять гривен', 'шесть гривен', 'семь гривен', 'восемь гривен', 'девять гривен'];
+	var firsttens = ['десять', 'одиннадцать', 'двенадцать', 'тринадцать', 'четырнадцать', 'пятнадцать', 'шестнадцать', 'семнадцать', 'восемнадцать', 'девятнадцать'];
+    var tens = ['', 'десять', 'двадцать', 'тридцать', 'сорок', 'пятьдесят', 'шестьдесят', 'семьдесят', 'восемьдесят', 'девяносто'];
+    var hundreds = ['', 'сто', 'двести', 'триста', 'четыреста', 'пятьсот', 'шестьсот', 'семьсот', 'восемьсот', 'девятьсот'];
+       
+    var num_to_words = num.toString();
+	var num_to_words_arr = num_to_words.split('');
+	
+	var hundreds_to_words = num_to_words_arr.length == 3 ? hundreds[num_to_words_arr[num_to_words_arr.length-3]] : '';
+      if (num_to_words_arr[num_to_words_arr.length - 2] == "1"){
+	  
+         var firsttens_to_words = firsttens[num_to_words_arr[num_to_words_arr.length-1]]
+         var res = hundreds_to_words + " " + firsttens_to_words + " гривен";
+		 
+         }else{
+		 
+         var tens_to_words = num_to_words_arr.length >= 2 ? tens[num_to_words_arr[num_to_words_arr.length-2]] : "";
+         var units_to_words = units[num_to_words_arr[num_to_words_arr.length-1]];
+         var res = hundreds_to_words + " " + tens_to_words + " " + units_to_words;
+        }
+    
+    console.log(res);
+  
+
+</script>
